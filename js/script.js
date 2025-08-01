@@ -137,6 +137,28 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
+    // --- Marquee Hover Effect ---
+    const marquee = document.querySelector('.marquee');
+    if (marquee) {
+        const marqueeContent = marquee.querySelectorAll('.marquee-content');
+        marquee.addEventListener('mouseenter', () => {
+            marqueeContent.forEach(content => content.style.animationPlayState = 'paused');
+            gsap.to(marqueeContent.querySelectorAll('span'), {
+                scale: 1.1,
+                duration: 0.5,
+                ease: 'power3.out'
+            });
+        });
+        marquee.addEventListener('mouseleave', () => {
+            marqueeContent.forEach(content => content.style.animationPlayState = 'running');
+            gsap.to(marqueeContent.querySelectorAll('span'), {
+                scale: 1,
+                duration: 0.5,
+                ease: 'power3.out'
+            });
+        });
+    }
+
     // --- About Page Timeline Animation ---
     const timeline = document.querySelector('.timeline');
     if(timeline) {
