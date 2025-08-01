@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Test - Agilus Diagnostics</title>
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@700,500,300,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="transition-overlay"></div>
+    <div id="custom-cursor"></div>
+    <div id="main-content">
+        <header>
+            <nav>
+                <div class="logo">Agilus Diagnostics</div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="book-a-test.html" class="btn">Book a Test</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="page-main">
+            <section class="page-header">
+                <h1>Book a Test</h1>
+                <p>Schedule your home collection in just a few clicks.</p>
+            </section>
+
+            <section class="booking-form-section">
+                <form class="booking-form">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="test">Select Test</label>
+                        <select id="test" name="test" required>
+                            <option value="fbc">Full Body Checkup</option>
+                            <option value="blood">Blood Tests</option>
+                            <option value="hormone">Hormone Tests</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Preferred Date</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+                    <button type="submit" class="btn-submit">Schedule Collection</button>
+                </form>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Agilus Diagnostics. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

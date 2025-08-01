@@ -1,14 +1,74 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Agilus Diagnostics</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agilus Diagnostics - Modern Pathology Lab</title>
     <link href="https://api.fontshare.com/v2/css?f[]=satoshi@700,500,300,400&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="transition-overlay"></div>
+    <div id="custom-cursor"></div>
+    <div id="main-content">
+        <header>
+            <nav>
+                <div class="logo">Agilus Diagnostics</div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="book-a-test.html" class="btn">Book a Test</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="hero">
+                <div class="hero-content">
+                    <h1 class="hero-title">Precision Diagnostics,</h1>
+                    <h1 class="hero-title">Delivered with Care.</h1>
+                </div>
+            </section>
+
+            <section class="marquee">
+                <div class="marquee-content">
+                    <span>NABL Certified</span>
+                    <span>•</span>
+                    <span>200+ Tests Available</span>
+                    <span>•</span>
+                    <span>Same-Day Reports</span>
+                    <span>•</span>
+                    <span>Home Collection</span>
+                    <span>•</span>
+                </div>
+            </section>
+
+            <div class="services-container">
+                <section class="services">
+                    <div class="section-header">
+                        <h2>Our Services</h2>
+                        <p>Comprehensive testing for all your needs.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Home Collection</h3>
+                        <p>Convenient sample collection from your doorstep.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Digital Reports</h3>
+                        <p>Access your reports online, anytime.</p>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Agilus Diagnostics. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
 </html>
