@@ -38,6 +38,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Hero Mouse-move Parallax
     const heroContent = document.querySelector('.hero-content');
+    const heroGradient = document.querySelector('.hero-gradient');
     document.addEventListener('mousemove', (e) => {
         const { clientX, clientY } = e;
         const x = (clientX / window.innerWidth) - 0.5;
@@ -48,6 +49,13 @@ document.addEventListener("DOMContentLoaded", function() {
             y: -y * 50,
             duration: 0.5,
             ease: "power2.out"
+        });
+
+        gsap.to(heroGradient, {
+            x: x * 200,
+            y: y * 200,
+            duration: 1,
+            ease: "power3.out"
         });
     });
 
