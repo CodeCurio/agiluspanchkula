@@ -1,0 +1,29 @@
+:root {
+    --primary-color: #007BFF;
+    --secondary-color: #0A2540;
+    --background-color: #F6F9FC;
+    --white: #FFFFFF;
+    --grey: #8898AA;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Satoshi', sans-serif;
+    background-color: var(--secondary-color);
+    color: var(--white);
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    body {
+        cursor: auto;
+    }
+    .custom-cursor {
+        display: none;
+    }
+}

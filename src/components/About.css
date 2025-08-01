@@ -1,0 +1,12 @@
+.about-container {
+    padding: 6rem 5%;
+    text-align: center;
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+    font-size: 1.2rem;
+    color: var(--grey);
+}
