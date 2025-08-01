@@ -227,6 +227,35 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
+    // --- Interactive Services Section ---
+    const interactiveServices = document.querySelector('.interactive-services');
+    if (interactiveServices) {
+        const serviceItems = document.querySelectorAll('.service-title-item');
+        const imageContainer = document.querySelector('.service-image-container');
+
+        serviceItems.forEach(item => {
+            item.addEventListener('mouseenter', (e) => {
+                const imageUrl = item.getAttribute('data-image');
+                imageContainer.innerHTML = `<img src="${imageUrl}">`;
+                gsap.to(imageContainer, { opacity: 1, duration: 0.5, ease: 'power3.out' });
+            });
+
+            item.addEventListener('mouseleave', (e) => {
+                gsap.to(imageContainer, { opacity: 0, duration: 0.5, ease: 'power3.out' });
+            });
+
+            item.addEventListener('mousemove', (e) => {
+                gsap.to(imageContainer, {
+                    x: e.clientX * 0.1,
+                    y: e.clientY * 0.1,
+                    duration: 1,
+                    ease: 'power3.out'
+                });
+            });
+        });
+    }
+
+
     // --- About Page Timeline Animation ---
     const timeline = document.querySelector('.timeline');
     if(timeline) {
