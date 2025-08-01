@@ -106,23 +106,91 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // --- Page Transitions ---
-    window.addEventListener('load', () => {
-        document.body.classList.add('is-loaded');
-    });
+    function pageTransitionIn() {
+        const tl = gsap.timeline();
+        tl.set(".transition-overlay", { yPercent: 0 });
+        tl.to(".transition-overlay", {
+            yPercent: -100,
+            duration: 1,
+            ease: "power2.inOut",
+            stagger: 0.2
+        });
+    }
 
+    function pageTransitionOut(href) {
+        const tl = gsap.timeline();
+        tl.to(".transition-overlay", {
+            yPercent: 0,
+            duration: 1,
+            ease: "power2.inOut",
+            stagger: 0.2,
+            onComplete: () => {
+                window.location.href = href;
+            }
+        });
+    }
+
+    // Wrap loader text
+    const loaderText = document.querySelector('.loader-text');
+    if (loaderText) {
+        const chars = loaderText.textContent.split('');
+        loaderText.innerHTML = '';
+        chars.forEach(char => {
+            const span = document.createElement('span');
+            span.textContent = char;
+            span.style.display = 'inline-block';
+            loaderText.appendChild(span);
+        });
+    }
+
+    // On page load
+    const onLoadTl = gsap.timeline({
+        onComplete: () => {
+            gsap.set(".transition-container", { display: "none" });
+        }
+    });
+    onLoadTl.from(".loader-text span", {
+        y: 100,
+        opacity: 0,
+        stagger: 0.05,
+        duration: 1,
+        ease: "power3.out"
+    })
+    .to(".loader-text span", {
+        y: -100,
+        opacity: 0,
+        stagger: 0.05,
+        duration: 1,
+        ease: "power3.in"
+    })
+    .to(["#overlay-1", "#overlay-2"], {
+        yPercent: -100,
+        duration: 1.2,
+        ease: "expo.inOut",
+        stagger: 0.1
+    }, "-=0.5");
+
+
+    // On link click
     const links = document.querySelectorAll('a[href]');
     links.forEach(link => {
         link.addEventListener('click', (e) => {
             const href = link.getAttribute('href');
-            // Ignore external links and anchor links
-            if (href.startsWith('#') || href.startsWith('http')) {
+            if (href.startsWith('#') || href.startsWith('http') || link.getAttribute('target') === '_blank') {
                 return;
             }
             e.preventDefault();
-            document.body.classList.add('is-transitioning');
-            setTimeout(() => {
-                window.location.href = href;
-            }, 500); // Match the animation duration
+            gsap.set(".transition-container", { display: "flex" });
+            const exitTl = gsap.timeline();
+            exitTl.to(["#overlay-1", "#overlay-2"], {
+                yPercent: 0,
+                duration: 1,
+                ease: "expo.inOut",
+                stagger: 0.1,
+                onComplete: () => {
+                    window.location.href = href;
+                }
+            });
         });
     });
 
